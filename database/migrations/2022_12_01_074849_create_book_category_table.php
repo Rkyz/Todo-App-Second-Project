@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOdersTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateOdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('oders', function (Blueprint $table) {
+        Schema::create('book_category', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->float('total_price');
-            $table->string('invoice_number');
-            $table->enum('status', ['SUBMIT', 'PROCESS', '']);
+            $table->integer('book_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateOdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('oders');
+        Schema::dropIfExists('book_category');
     }
-}
+};
